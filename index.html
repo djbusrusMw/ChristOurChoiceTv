@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Free Software Downloads</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 1.5rem; /* Increased padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px; /* Increased max width */
+    margin: 0 auto;
+    padding: 0 2rem; /* Increased padding */
+}
+
+.logo img {
+    max-height: 60px; /* Increased logo height */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; /* Increased gap between menu items */
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem; /* Increased font size */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.search-bar form {
+    display: flex;
+}
+
+.search-bar input {
+    padding: 0.75rem; /* Increased padding */
+    border: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+    padding: 0.75rem 1.5rem; /* Increased padding */
+    border: none;
+    background-color: #0056b3;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 1rem; /* Increased font size */
+}
+
+.search-bar button:hover {
+    background-color: #003d80;
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    margin-top: 2rem; /* Increased margin */
+    padding: 0 2rem; /* Increased padding */
+}
+
+.ads-left, .ads-right {
+    width: 250px; /* Increased width */
+    margin: 0 1.5rem; /* Increased margin */
+}
+
+.ad-placeholder {
+    background: #eaeaea;
+    padding: 1.5rem; /* Increased padding */
+    border-radius: 8px;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    flex: 1;
+    max-width: 1200px; /* Increased max width */
+    padding: 2.5rem; /* Increased padding */
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#hero {
+    background: #007bff;
+    color: #fff;
+    padding: 2.5rem; /* Increased padding */
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2.5rem; /* Increased margin */
+}
+
+#hero h1 {
+    font-size: 3rem; /* Increased font size */
+    margin-bottom: 1.5rem; /* Increased margin */
+}
+
+#hero p {
+    font-size: 1.5rem; /* Increased font size */
+    margin-bottom: 2.5rem; /* Increased margin */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem; /* Increased padding */
+    background-color: #fff;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem; /* Increased font size */
+}
+
+.cta-button:hover {
+    background-color: #f1f1f1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Increased min width */
+    gap: 1.5rem; /* Increased gap */
+}
+
+.software {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem; /* Increased padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.software img {
+    width: 100%;
+    border-radius: 8px;
+    max-height: 200px; /* Increased max height */
+    object-fit: cover;
+}
+
+.software-details {
+    margin-top: 1.5rem; /* Increased margin */
+}
+
+.software-details h3 {
+    font-size: 1.5rem; /* Increased font size */
+    margin: 0.75rem 0; /* Increased margin */
+}
+
+.software-details p {
+    font-size: 1.125rem; /* Increased font size */
+    color: #555;
+}
+
+.software-details a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.software-details a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 2rem; /* Increased padding for better spacing */
+    position: relative; /* Changed from fixed to relative */
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+footer nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+footer nav a:hover {
+    color: #f1f1f1; /* Lighter color on hover */
+    text-decoration: underline;
+}
+
+footer p {
+    margin-top: 1rem; /* Added margin to separate from the nav */
+    font-size: 0.875rem; /* Slightly smaller font size for copyright text */
+}
+
+
+
+.software {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.software:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.software img {
+    width: 100%;
+    border-radius: 8px;
+    max-height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.software img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.software-details h3, .software-details p {
+    margin: 0.5rem 0;
+}
+
+.software-details a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.software-details a:hover {
+    color: #0056b3; /* Darker color on hover */
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Website Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <form action="search.html" method="get">
+                    <input type="text" name="q" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <div class="ads-left">
+            <div class="ad-placeholder">
+                <p>Left AdSense Placeholder</p>
+                <!-- Replace this with your AdSense code -->
+            </div>
+        </div>
+        <main class="main-content">
+            <section id="hero">
+                <div class="hero-content">
+                    <h1>Find and Download the Latest Free Software</h1>
+                    <p>Explore a wide range of software to meet your needs and stay updated with the latest trends.</p>
+                    <a href="downloads.html" class="cta-button">Browse Downloads</a>
+                </div>
+            </section>
+
+            <section id="trending">
+                <h2>Trending Now</h2>
+                <div class="grid-container">
+                    <div class="software">
+                        <img src="Designer (5).jpeg" alt="Software 1">
+                        <div class="software-details">
+                            <h3>Software 1</h3>
+                            <p>Description of the trending software.</p>
+                            <a href="#">Download</a>
+                        </div>
+                    </div>
+                    <div class="software">
+                        <img src="Designer (7).jpeg" alt="Software 2">
+                        <div class="software-details">
+                            <h3>Software 2</h3>
+                            <p>Description of the trending software.</p>
+                            <a href="#">Download</a>
+                        </div>
+                    </div>
+                    <div class="software">
+                        <img src="Designer (5).jpeg" alt="Software 1">
+                        <div class="software-details">
+                            <h3>Software 1</h3>
+                            <p>Description of the trending software.</p>
+                            <a href="#">Download</a>
+                        </div>
+                    </div>
+                    <div class="software">
+                        <img src="Designer (7).jpeg" alt="Software 2">
+                        <div class="software-details">
+                            <h3>Software 2</h3>
+                            <p>Description of the trending software.</p>
+                            <a href="#">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="most-downloaded">
+                <h2>Most Downloaded</h2>
+                <div class="grid-container">
+                    <div class="software">
+                        <img src="Designer (8).jpeg" alt="Most Downloaded Software">
+                        <div class="software-details">
+                            <h3>Most Downloaded Software</h3>
+                            <p>Description of the most downloaded software.</p>
+                            <a href="#">Download</a>
+                        </div>
+                    </div>
+                    <div class="software">
+                        <img src="Designer (8).jpeg" alt="Most Downloaded Software">
+                        <div class="software-details">
+                            <h3>Most Downloaded Software</h3>
+                            <p>Description of the most downloaded software.</p>
+                            <a href="#">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="recommended">
+                <h2>Recommended for You</h2>
+                <div class="grid-container">
+                    <div class="software">
+                        <img src="Designer (9).jpeg" alt="Recommended Software">
+                        <div class="software-details">
+                            <h3>Recommended Software</h3>
+                            <p>Description of the recommended software.</p>
+                            <a href="#">Download</a>
+                        </div>
+                    </div>
+                    <div class="software">
+                        <img src="Designer (9).jpeg" alt="Recommended Software">
+                        <div class="software-details">
+                            <h3>Recommended Software</h3>
+                            <p>Description of the recommended software.</p>
+                            <a href="#">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div class="ads-right">
+            <div class="ad-placeholder">
+                <p>Right AdSense Placeholder</p>
+                <!-- Replace this with your AdSense code -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="DMCA.html">DMCA</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2024 Free Software Downloads</p>
+    </footer>
+</body>
+</html>
